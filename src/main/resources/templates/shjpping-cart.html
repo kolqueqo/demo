@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
+</head>
+<body>
+<div>
+    <a href = "login">LogIn</a>
+</div>
+<div class="container">
+    <h2>Корзина</h2>
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th>Breed</th>
+                <th>Color</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <th:block th:each="product : ${cart}">
+                <tr>
+                    <td th:text="${product.Breed}"></td>
+                    <td th:text="${product.Color}"></td>
+                    <td th:text="${product.Price}"></td>
+                    <td th:text="${product.Quantity}"></td>
+                    <td th:text="${product.Total}"></td>
+                </tr>
+            </th:block>
+            </thead>
+        </table>
+    </div>
+    <div>Итого: <span id="total-cart-summa">0</span> руб.</div>
+    <br>
+    <button id="order" class="btn btn-info">Оформить заказ</button>
+</div>
+</body>
+</html>
