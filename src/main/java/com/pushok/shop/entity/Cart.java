@@ -1,6 +1,8 @@
 package com.pushok.shop.entity;
 
 
+import org.springframework.security.core.parameters.P;
+
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +19,9 @@ public class Cart {
 
     @OneToOne
     private Product product;
+
+
+
 
     public Cart() {
     }

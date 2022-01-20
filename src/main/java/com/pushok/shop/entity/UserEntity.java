@@ -24,7 +24,7 @@ public class UserEntity {
 
     private String role;
 
-    public User() {
+    public UserEntity() {
 
     }
 
@@ -72,7 +72,7 @@ public class UserEntity {
         this.role = role;
     }
 
-    public User(String email, String username, String password, String role) {
+    public UserEntity(String email, String username, String password, String role) {
         this.email = email;
         this.username = username;
         this.password = password;

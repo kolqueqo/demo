@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Long> {
 
+
     List<Product> findAllByColor(String color);
     List<Product> findAllByBreed(String breed);
 

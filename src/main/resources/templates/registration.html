@@ -4,23 +4,26 @@
     <meta charset="UTF-8">
     <title>Registration</title>
     <!--<link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
-    <link href="../static/registration.css" rel="stylesheet">
+    <link th:href="@{/registration.css}" rel="stylesheet">
 </head>
 <body>
 <div class="form">
+    <form th:method="POST" th:action="@{/registration}">
     <h1>Registration form</h1>
+    <div th:if="${message} != null" th:text="${message}"></div>
     <div class="input-form">
-        <input type="text" placeholder="Login">
+        <input type="text" placeholder="Login" name="username">
     </div>
     <div class="input-form">
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Email" name="mail">
     </div>
     <div class="input-form">
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password" name="password">
     </div>
     <div class="input-form">
         <input type="submit" value="Register">
     </div>
+    </form>
 </div>
 </body>
 </html>

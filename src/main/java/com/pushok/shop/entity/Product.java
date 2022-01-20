@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product")
 public class Product {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -18,7 +20,6 @@ public class Product {
 
 
     public Product() {
-
     }
 
     public String getColor() {
