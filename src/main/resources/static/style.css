@@ -1,7 +1,6 @@
 html {
     /*background: white;*/
 }
-
 h3 {
     margin: 0px;
     padding: 0px;
@@ -30,7 +29,6 @@ body{
     color: white;
     font-size: 25px;
 }
-
 .bar{
     display: block;
     border: black 1px;
@@ -43,7 +41,6 @@ body{
     text-align: right;
     border-radius: 5px;
 }
-
 .logo{
     display: block;
     height: 250px;
@@ -54,20 +51,16 @@ body{
     text-align: center;
     border-radius: 5px;
 }
-
 a{
     text-decoration: none;
     color: #F8F8F8;
 }
-
 a:hover{
     color: sandybrown;
 }
-
 li{
     list-style-type: none;
 }
-
 ul{
     margin-left: 0;
     padding-left: 0;
@@ -109,10 +102,9 @@ ul{
 .doggy{
     margin: 10px;
 }
-
 .button1{
     font-family: SansSerif;
-    background-color: sandybrown;
+    background-color: rgb(140, 163, 173);
     font-size: 25px;
     color: white;
     border-radius: 5px;
