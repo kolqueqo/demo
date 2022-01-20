@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<!--bar-->
+<div>
+    <a href = "login">LogIn</a>
+</div>
+<!--filters-->
+<div>
+    <form method="get" th:action="@{/}">
+        <div>Sort by</div>
+        <div>
+            <ul>
+                <li><input type="checkbox" id="cb1" name="color" value="white"><label for="cb1">White</label></li>
+                <li><input type="checkbox" id="cb2" name="color"  value="black"><label for="cb2">Black</label></li>
+                <li><input type="checkbox" id="cb3" name="color"  value="color"><label for="cb3">Brown</label></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><input type="checkbox" id="cb4" name="breed" value="Doberman"><label for="cb4">Doberman</label></li>
+                <li><input type="checkbox" id="cb5" name="breed"  value="Newfoundland"><label for="cb5">Newfoundland</label></li>
+                <li><input type="checkbox" id="cb6" name="breed"  value="Tibetan mastiff"><label for="cb6">Tibetan mastiff</label></li>
+                <li><input type="checkbox" id="cb7" name="breed"  value="Old English sheepdog"><label for="cb7">Old English sheepdog</label></li>
+            </ul>
+        </div>
+        <label><input type="submit" value="Применить"></label>
+    </form>
+</div>
+<!--vitrina-->
+<div>
+            <ul>
+                <li  th:each="product : ${products}">
+                    <div th:text="${product.breed}"></div>
+                    <div th:text="${product.color}"></div>
+                    <div th:text="${product.price}"></div>
+                </li>
+            </ul>
+        </th:block>
+</div>
+</body>
+</html>
