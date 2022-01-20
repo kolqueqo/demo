@@ -1,52 +1,80 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
-    <!--<link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
-    <link href="../static/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    <!--<link href="../static/style.css" rel="stylesheet">-->
 </head>
 <body>
 <div class = "homepage">
     <!--bar-->
     <div class="bar">
-        <a href = "login">LogIn</a>
+        <th:block sec:authorize="!isAuthenticated()">
+            <a href = "loginka">LogIn</a>
+            <a href = "registration">Registration</a>
+        </th:block>
+        <th:block sec:authorize="isAuthenticated">
+            <form th:method="POST" th:action="@{/logout}">
+                <input type="submit" value="LogOut" class="logout">
+            </form>
+            <a href = "cart">SHOPPING CART</a>
+        </th:block>
     </div>
     <div class = "logo">
-        <img src="../static/images/pushok-shop.png" id = "logo_pic">
+        <img src="images/pushok-shop.png" id = "logo_pic">
     </div>
-    <!--filters-->
-    <div class = "filers">
-        <form method="get" th:action="@{/}">
-            <div>Sort by</div>
-            <div>
-                <ul>
-                    <li><input type="checkbox" id="cb1" name="color" value="white"><label for="cb1">White</label></li>
-                    <li><input type="checkbox" id="cb2" name="color"  value="black"><label for="cb2">Black</label></li>
-                    <li><input type="checkbox" id="cb3" name="color"  value="color"><label for="cb3">Brown</label></li>
-                </ul>
-            </div>
-            <div>
-                <ul>
-                    <li><input type="checkbox" id="cb4" name="breed" value="Doberman"><label for="cb4">Doberman</label></li>
-                    <li><input type="checkbox" id="cb5" name="breed"  value="Newfoundland"><label for="cb5">Newfoundland</label></li>
-                    <li><input type="checkbox" id="cb6" name="breed"  value="Tibetan mastiff"><label for="cb6">Tibetan mastiff</label></li>
-                    <li><input type="checkbox" id="cb7" name="breed"  value="Old English sheepdog"><label for="cb7">Old English sheepdog</label></li>
-                </ul>
-            </div>
-            <label><input type="submit" value="Apply" class = "button1"></label>
-        </form>
-    </div>
-    <!--vitrina-->
-    <div class="vitrina">
-        <ul>
-            <li  th:each="product : ${products}">
-                <div th:text="${product.breed}"></div>
-                <div th:text="${product.color}"></div>
-                <div th:text="${product.price}"></div>
-            </li>
-        </ul>
-        </th:block>
+    <div class = "filters_vitrina">
+        <!--filters-->
+        <div class = "filers">
+            <form method="get" th:action="@{/}">
+                <div>Sort by</div>
+                <div>
+                    <ul>
+                        <li><input type="checkbox" id="cb1" name="color" value="white"><label for="cb1">White</label></li>
+                        <li><input type="checkbox" id="cb2" name="color"  value="black"><label for="cb2">Black</label></li>
+                        <li><input type="checkbox" id="cb3" name="color"  value="color"><label for="cb3">Brown</label></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><input type="checkbox" id="cb4" name="breed" value="Doberman"><label for="cb4">Doberman</label></li>
+                        <li><input type="checkbox" id="cb5" name="breed"  value="Newfoundland"><label for="cb5">Newfoundland</label></li>
+                        <li><input type="checkbox" id="cb6" name="breed"  value="Tibetan mastiff"><label for="cb6">Tibetan mastiff</label></li>
+                        <li><input type="checkbox" id="cb7" name="breed"  value="Old English sheepdog"><label for="cb7">Old English sheepdog</label></li>
+                    </ul>
+                </div>
+                <label><input type="submit" value="APPLY" class = "button1"></label>
+            </form>
+        </div>
+        <!--vitrina-->
+        <div class="vitrina">
+            <ul>
+                <li  th:each="product : ${products}">
+                    <div class = "description">
+                        <div th:text="'Breed:' + ${product.breed}" class="descriptionPart"></div>
+                        <div th:text="'Color:' + ${product.color}" class="descriptionPart"></div>
+                        <div th:text="'Price:' + ${product.price}" class="descriptionPart"></div>
+                    </div>
+                    <div class = "doggy">
+                        <img th:src="'images/' + ${product.id} + '.jpg'">
+                    </div>
+                    <div class="quantity">
+                        <button class="plus-btn" type="button" name="button">
+                            <img src="images/plus.png" alt="" />
+                        </button>
+                        <input type="text" name="name" value="1">
+                        <button class="minus-btn" type="button" name="button">
+                            <img src="images/minus.png" alt="" />
+                        </button>
+                    </div>
+                    <div class="addToCart">
+                        <label><input type="submit" value="ADD" class = "button1"></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 </body>

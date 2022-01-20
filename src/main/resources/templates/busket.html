@@ -1,31 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>home</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
-<!--bar-->
-<div>
-    <a href = "login">LogIn</a>
-</div>
-<!--order-->
-<div>
-    <table>
-        <tr>
-            <th>Breed</th>
-            <th>Color</th>
-            <th>Price</th>
-        </tr>
-        <th:block th:each="product : ${cart}">
-            <tr>
-                <td th:text="${product.breed}"></td>
-                <td th:text="${product.color}"></td>
-                <td th:text="${product.price}"></td>
+    <div class="cart">
+        <table>
+            <tr class = "trfirst">
+                <th>
+                    BREED
+                </th>
+                <th>
+                    COLOR
+                </th>
+                <th>
+                    PRICE
+                </th>
+                <th>
+                    QUANTITY
+                </th>
+                <th>
+                    TOTAL
+                </th>
             </tr>
-        </th:block>
-    </table>
-</div>
+            <tr>
+
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>all total</th>
+            </tr>
+        </table>
+        <div class = "order">
+            <input th:type="text" placeholder="ADRESS" class="order_input">
+            <button class="order_btn" type="button" name="button">
+                PLACE AN ORDER
+            </button>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,10 +1,11 @@
 package com.pushok.shop.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,18 +17,27 @@ public class User {
 
     private String password;
 
-    private Long BasketId;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "cart",
-            joinColumns = @JoinColumn(name = "users", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "userId", referencedColumnName = "ID"))
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_product",
+            joinColumns = @JoinColumn(name = "userID", referencedColumnName = "ID"))
     private List<Cart> products;
 
     private String role;
 
     public User() {
 
+    }
+
+    public void addProduct(Cart product){
+        this.products.add(product);
+    }
+
+    public void deleteProduct(Cart product){
+        this.products.remove(product);
+    }
+
+    public void deleteAllProduct(){
+        this.products.clear();
     }
 
     public String getEmail() {

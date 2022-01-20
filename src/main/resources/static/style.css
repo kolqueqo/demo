@@ -1,18 +1,31 @@
 html {
-    background: white;
+    /*background: white;*/
 }
 
 h3 {
     margin: 0px;
     padding: 0px;
 }
-
-.homepage{
-    display: block;
+body{
+    background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(https://media.discordapp.net/attachments/859159940638703647/933820167660638368/w0263_1s_Nautical-Waves-Wallpaper-for-Walls-Waves-of-Chic_Repeating-Pattern-Sample-1.png?width=1094&height=676);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+.form {
     position: absolute;
-    max-width: available;
-    max-height: available;
-    background: #F8F8F8;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .8);
+}
+.homepage{
+    /*display: block;*/
+    /*position: absolute;*/
+    /*max-width: available;*/
+    /*max-height: available;*/
     font-family: SansSerif;
     color: white;
     font-size: 25px;
@@ -22,9 +35,11 @@ h3 {
     display: block;
     border: black 1px;
     vertical-align: center;
-    padding: 5px 5px;
-    margin: 0 10px;
-    background-color: black;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 5px 5px;
+    background-color: rgba(0,0,0,.8);
     text-align: right;
     border-radius: 5px;
 }
@@ -34,8 +49,8 @@ h3 {
     height: 250px;
     border: black 1px;
     vertical-align: center;
-    margin: 10px;
-    background-color: gray;
+    margin: 5px 5px;
+    background-color: rgba(0,0,0,.8);
     text-align: center;
     border-radius: 5px;
 }
@@ -57,24 +72,42 @@ ul{
     margin-left: 0;
     padding-left: 0;
 }
+.filters_vitrina{
+    display: block;
+}
 
 .filers{
-    display: block;
+    display: inline;
     float: left;
-    height: 700px;
     border: black 2px;
-    background-color: black;
-    margin: 10px;
-    margin-top: 0;
+    background-color: rgba(0,0,0,.5);
+    margin: 5px 5px;
     text-align: left;
     padding: 10px 10px;
     border-radius: 5px;
+    height: auto;
 }
 
 .vitrina{
-    display: block;
-    float: left;
+    display: inline;
     width: 1250px;
+    float: left;
+    text-align: left;
+    background-color: rgba(0,0,0,.5);
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 5px;
+    height: available;
+}
+.description{
+    vertical-align: center;
+}
+.descriptionPart{
+    display: block;
+    margin: 5px;
+}
+.doggy{
+    margin: 10px;
 }
 
 .button1{
@@ -85,7 +118,102 @@ ul{
     border-radius: 5px;
     width: 100px;
 }
+.minus-btn{
+    margin: 0 0;
+    padding: 0px 0px;
+    background-color: black;
 
-.button1:hover{
-    background-color: bisque;
+}
+.plus-btn{
+    margin: 0 0;
+    padding: 0px 0px;
+    background-color: black;
+}
+button:focus,
+input:focus{
+    outline: 0;
+}
+.quantity{
+    padding-top: 20px;
+    margin-right: 60px;
+}
+.quantity input {
+    -webkit-appearance: none;
+    border: none;
+    text-align: center;
+    width: 32px;
+    font-size: 16px;
+    color: #43484D;
+    font-weight: 300;
+}
+.logout {
+    background: url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login-hover.png') no-repeat 5px 5px #484B4F;
+    width: 90px;
+    cursor:pointer;
+    border-radius: 20px;
+    padding: 4px 0px 10px 0;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    text-indent: 20px;
+    display: inline;
+    float: right;
+    margin: 0 5px;
+/* Animations: */
+-webkit-transition-timing-function: ease-in-out;
+-webkit-transition-duration: .4s;
+-webkit-transition-property: all;
+
+-moz-transition-timing-function: ease-in-out;
+-moz-transition-duration: .4s;
+-moz-transition-property: all;
+}
+.logout:hover {
+    background-image: url( 'https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png' );
+    background-position: 50px 5px;
+    text-indent: 15px;
+    color: sandybrown;
+}
+.cart{
+    text-align: center;
+    display: block;
+    width: 1000px;
+    padding: 0 250px;
+    color: white;
+}
+
+.cart table{
+    border-collapse: collapse;
+    border: 1px solid white;
+    width: 1000px;
+    /*background-color: black;*/
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+}
+
+.cart th{
+    border: 1px solid white;
+    height: 30px;
+}
+
+.cart td{
+    border: 1px solid white;
+}
+
+.trfirst{
+    background: linear-gradient(rgba(92, 11, 132, 0.5), rgba(92, 11, 132, 0.5));
+}
+
+.cart .order{
+    text-align: right;
+    margin: 10px 0;
+}
+
+.cart .order_btn{
+    width: 177.5px;
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5))
+}
+
+.cart .order_input{
+    width: 270px;
+    height: 20px;
 }
