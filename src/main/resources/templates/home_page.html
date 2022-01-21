@@ -12,14 +12,22 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <!--bar-->
     <div class="bar">
         <th:block sec:authorize="!isAuthenticated()">
-            <a href = "loginka">LogIn</a>
-            <a href = "registration">Registration</a>
+            <a href = "loginka">LOGIN</a>
+            <a href = "registration">REGISTRATION</a>
         </th:block>
         <th:block sec:authorize="isAuthenticated">
             <form th:method="POST" th:action="@{/logout}">
                 <input type="submit" value="LogOut" class="logout">
             </form>
-            <a href = "cart">SHOPPING CART</a>
+            <th:block sec:authorize="hasRole('USER')">
+                <a href = "addcart">SHOPPING CART</a>
+            </th:block>
+            <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
+                <a href = "order">ORDERS</a>
+            </th:block>
+            <th:block sec:authorize="hasRole('ADMIN')">
+                <a href = "addProduct">ADD</a>
+            </th:block>
         </th:block>
     </div>
     <div class = "logo">
@@ -53,21 +61,12 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <ul>
                 <li  th:each="product : ${products}">
                     <div class = "description">
-                        <div th:text="'Breed:' + ${product.breed}" class="descriptionPart"></div>
-                        <div th:text="'Color:' + ${product.color}" class="descriptionPart"></div>
-                        <div th:text="'Price:' + ${product.price}" class="descriptionPart"></div>
+                        <div th:text="'BREED: ' + ${product.breed}" class="descriptionPart" id = "breed"></div>
+                        <div th:text="'COLOR:  + ${product.color}" class="descriptionPart"></div>
+                        <div th:text="'PRICE: ' + ${product.price}" class="descriptionPart"></div>
                     </div>
                     <div class = "doggy">
                         <img th:src="'images/' + ${product.id} + '.jpg'">
-                    </div>
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="images/plus.png" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="images/minus.png" alt="" />
-                        </button>
                     </div>
                     <div class="addToCart">
                         <label><input type="submit" value="ADD" class = "button1"></label>

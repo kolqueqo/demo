@@ -5,44 +5,106 @@
     <meta charset="UTF-8">
     <title>home</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
 </head>
 <body>
+<!--    <div class="bar">-->
+<!--        <th:block sec:authorize="!isAuthenticated()">-->
+<!--            <a href = "home_page">SHOP</a>-->
+<!--            <a href = "loginka">LOGIN</a>-->
+<!--            <a href = "registration">REGISTRATION</a>-->
+<!--        </th:block>-->
+<!--        <th:block sec:authorize="isAuthenticated">-->
+<!--            <form th:method="POST" th:action="@{/logout}">-->
+<!--                <input type="submit" value="LogOut" class="logout">-->
+<!--            </form>-->
+<!--            <a href = "home_page">SHOP</a>-->
+<!--        </th:block>-->
+<!--        <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">-->
+<!--            <a href = "order">ORDERS</a>-->
+<!--        </th:block>-->
+<!--        <th:block sec:authorize="hasRole('ADMIN')">-->
+<!--            <a href = "addProduct">ADD ITEM</a>-->
+<!--        </th:block>-->
+<!--    </div>-->
+<!--    <div class = "logo">-->
+<!--        <img src="images/pushok-shop.png" id = "logo_pic">-->
+<!--    </div>-->
     <div class="cart">
-        <table>
-            <tr class = "trfirst">
-                <th>
-                    BREED
-                </th>
-                <th>
-                    COLOR
-                </th>
-                <th>
-                    PRICE
-                </th>
-                <th>
-                    QUANTITY
-                </th>
-                <th>
-                    TOTAL
-                </th>
-            </tr>
-            <tr>
+        <div class = "item">
+            <div class="order-description">
+                <div class = "doggy">
+                    PICTURE
+                </div>
 
-            </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>all total</th>
-            </tr>
-        </table>
-        <div class = "order">
-            <input th:type="text" placeholder="ADRESS" class="order_input">
-            <button class="order_btn" type="button" name="button">
-                PLACE AN ORDER
-            </button>
+                BREED
+                COLOR
+                PRICE
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                    <img src="../static/images/plus.png" alt="" />
+                </button>
+
+                <input type="text" name="name" value="1">
+
+                <button class="minus-btn" type="button" name="button">
+                    <img src="../static/images/minus.png" alt="" />
+                </button>
+            </div>
+
+            <div class="total">
+                TOTAL
+            </div>
+
+            <div class = "delete-btn">
+                <button type="button" name="button">
+                    <img src="../static/images/delete.png" alt="" />
+                </button>
+            </div>
         </div>
+
     </div>
+
+    <div class = "order">
+        <input th:type="text" placeholder="ADRESS" class="order_input">
+        <button class="order_btn" type="button" name="button">
+            PLACE AN ORDER
+        </button>
+    </div>
+
+    <script type="text/javascript">
+        $('.minus-btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+
+            if (value > 1) {
+                value = value - 1;
+            } else {
+                value = 1;
+            }
+
+            $input.val(value);
+
+        });
+
+        $('.plus-btn').on('click', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $input = $this.closest('div').find('input');
+            var value = parseInt($input.val());
+
+            if (value < 100) {
+                value = value + 1;
+            } else {
+                value =100;
+            }
+
+            $input.val(value);
+        });
+    </script>
 </body>
 </html>

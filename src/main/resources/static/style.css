@@ -1,10 +1,12 @@
 html {
     /*background: white;*/
 }
+
 h3 {
     margin: 0px;
     padding: 0px;
 }
+
 body{
     background: linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.3)), url(https://media.discordapp.net/attachments/859159940638703647/933820167660638368/w0263_1s_Nautical-Waves-Wallpaper-for-Walls-Waves-of-Chic_Repeating-Pattern-Sample-1.png?width=1094&height=676);
     -webkit-background-size: cover;
@@ -13,6 +15,7 @@ body{
     width: 100%;
     height: 100%;
 }
+
 .form {
     position: absolute;
     top: 50%;
@@ -20,6 +23,7 @@ body{
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .8);
 }
+
 .homepage{
     /*display: block;*/
     /*position: absolute;*/
@@ -29,6 +33,7 @@ body{
     color: white;
     font-size: 25px;
 }
+
 .bar{
     display: block;
     border: black 1px;
@@ -41,6 +46,7 @@ body{
     text-align: right;
     border-radius: 5px;
 }
+
 .logo{
     display: block;
     height: 250px;
@@ -51,20 +57,29 @@ body{
     text-align: center;
     border-radius: 5px;
 }
+
 a{
     text-decoration: none;
     color: #F8F8F8;
 }
+
 a:hover{
     color: sandybrown;
 }
+
 li{
     list-style-type: none;
 }
+
 ul{
     margin-left: 0;
     padding-left: 0;
 }
+
+.vitrina ul{
+    margin-top: 0;
+}
+
 .filters_vitrina{
     display: block;
 }
@@ -85,23 +100,34 @@ ul{
     display: inline;
     width: 1250px;
     float: left;
-    text-align: left;
-    background-color: rgba(0,0,0,.5);
-    margin-top: 5px;
-    margin-right: 10px;
-    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
     height: available;
+    margin-top: 5px;
 }
+
 .description{
     vertical-align: center;
 }
+
 .descriptionPart{
     display: block;
-    margin: 5px;
+    margin: 10px;
 }
+
+#breed{
+    margin-top: 5px;
+}
+
 .doggy{
     margin: 10px;
 }
+
+.doggy img{
+    border-radius: 5px;
+    border: 2px solid white;
+}
+
 .button1{
     font-family: SansSerif;
     background-color: rgb(140, 163, 173);
@@ -110,25 +136,33 @@ ul{
     border-radius: 5px;
     width: 100px;
 }
+
 .minus-btn{
     margin: 0 0;
     padding: 0px 0px;
     background-color: black;
+    border-radius: 5px;
 
 }
+
 .plus-btn{
     margin: 0 0;
     padding: 0px 0px;
     background-color: black;
+    border-radius: 5px;
 }
+
 button:focus,
 input:focus{
     outline: 0;
 }
+
 .quantity{
-    padding-top: 20px;
-    margin-right: 60px;
+    padding-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
+
 .quantity input {
     -webkit-appearance: none;
     border: none;
@@ -138,6 +172,7 @@ input:focus{
     color: #43484D;
     font-weight: 300;
 }
+
 .logout {
     background: url('https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login-hover.png') no-repeat 5px 5px #484B4F;
     width: 90px;
@@ -160,52 +195,90 @@ input:focus{
 -moz-transition-duration: .4s;
 -moz-transition-property: all;
 }
+
 .logout:hover {
     background-image: url( 'https://dh3vbjnk0bnfa.cloudfront.net/static/centralauth/images/btn-login.png' );
     background-position: 50px 5px;
     text-indent: 15px;
     color: sandybrown;
 }
+
 .cart{
     text-align: center;
-    display: block;
-    width: 1000px;
+    width: 1040px;
     padding: 0 250px;
     color: white;
+    font-size: 25px;
+    font-family: SansSerif;
 }
 
-.cart table{
-    border-collapse: collapse;
-    border: 1px solid white;
-    width: 1000px;
-    /*background-color: black;*/
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+.item{
+    background-color: rgba(0,0,0,.5);
+    padding: 1px;
 }
 
-.cart th{
-    border: 1px solid white;
-    height: 30px;
-}
-
-.cart td{
-    border: 1px solid white;
-}
-
-.trfirst{
-    background: linear-gradient(rgba(92, 11, 132, 0.5), rgba(92, 11, 132, 0.5));
-}
-
-.cart .order{
-    text-align: right;
+.order{
     margin: 10px 0;
+    text-align: center;
 }
 
-.cart .order_btn{
+.order_btn{
     width: 177.5px;
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5))
+    background: rgb(140, 163, 173);
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
-.cart .order_input{
+.order_input{
     width: 270px;
     height: 20px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
 }
+
+.addToCart{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.vitrina li{
+    background: rgba(0,0,0,.5);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.order-description{
+    margin: 5px;
+}
+
+.quantity{
+    margin: 5px;
+}
+
+.total{
+    margin: 5px;
+}
+
+.delete-btn{
+    margin: 5px;
+}
+
+.quantity input{
+    background: none;
+    color: white;
+    font-size: 25px;
+}
+
+.delete-btn button{
+    margin: 0 0;
+    padding: 0 0;
+    background-color: black;
+    border-radius: 5px;
+}
+
+
+
