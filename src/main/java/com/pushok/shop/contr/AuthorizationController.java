@@ -36,7 +36,7 @@ public class AuthorizationController {
     public String getReg(String username, String mail, String password, Model model){
         System.out.println(username);
         if (userService.findByName(username) != null) {
-            model.addAttribute("message", "Иди нахуй");
+            model.addAttribute("message", "ты по-моему чето перепутал");
             return "registration";
         }
         userService.save(username,passwordEncoder.encode(password),mail);

@@ -45,6 +45,8 @@ body{
     background-color: rgba(0,0,0,.8);
     text-align: right;
     border-radius: 5px;
+    color: white;
+    font-size: 25px;
 }
 
 .logo{
@@ -205,7 +207,6 @@ input:focus{
 
 .cart{
     text-align: center;
-    width: 1040px;
     padding: 0 250px;
     color: white;
     font-size: 25px;
@@ -280,5 +281,57 @@ input:focus{
     border-radius: 5px;
 }
 
+.add-product{
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-family: SansSerif;
+}
+
+.product-form{
+    text-align: center;
+    margin: 10px 250px;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.product-form input{
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-size: 25px;
+    width: 200px;
+    font-family: sans-serif;
+}
+
+.product-form button{
+    border-radius: 5px;
+    background-color: rgb(140, 163, 173);
+    color: white;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+.delete-order-btn{
+    margin: 0 0;
+    padding: 0 0;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.order-list{
+    width: 100%;
+}
+
+.the-order{
+    margin: 10px 250px;
+    background-color: rgba(0, 0, 0, .5);
+    font-family: SansSerif;
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
 
 

@@ -19,15 +19,15 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <form th:method="POST" th:action="@{/logout}">
                 <input type="submit" value="LogOut" class="logout">
             </form>
-            <th:block sec:authorize="hasRole('USER')">
-                <a href = "addcart">SHOPPING CART</a>
-            </th:block>
-            <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
-                <a href = "order">ORDERS</a>
-            </th:block>
-            <th:block sec:authorize="hasRole('ADMIN')">
-                <a href = "addProduct">ADD</a>
-            </th:block>
+        </th:block>
+        <th:block sec:authorize="hasRole('USER')">
+            <a href = "addcart">SHOPPING CART</a>
+        </th:block>
+        <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
+            <a href = "order">ORDERS</a>
+        </th:block>
+        <th:block sec:authorize="hasRole('ADMIN')">
+            <a href = "addProduct">ADD</a>
         </th:block>
     </div>
     <div class = "logo">
@@ -62,15 +62,17 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <li  th:each="product : ${products}">
                     <div class = "description">
                         <div th:text="'BREED: ' + ${product.breed}" class="descriptionPart" id = "breed"></div>
-                        <div th:text="'COLOR:  + ${product.color}" class="descriptionPart"></div>
+                        <div th:text="'COLOR: ' + ${product.color}" class="descriptionPart"></div>
                         <div th:text="'PRICE: ' + ${product.price}" class="descriptionPart"></div>
                     </div>
                     <div class = "doggy">
                         <img th:src="'images/' + ${product.id} + '.jpg'">
                     </div>
-                    <div class="addToCart">
-                        <label><input type="submit" value="ADD" class = "button1"></label>
-                    </div>
+                    <th:block sec:authorize = "hasRole('USER')">
+                        <div class="addToCart">
+                            <label><input type="submit" value="ADD" class = "button1"></label>
+                        </div>
+                    </th:block>
                 </li>
             </ul>
         </div>

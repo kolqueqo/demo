@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>home</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
 </head>
 <body>
-
+<div class="bar">
+    <form th:method="POST" th:action="@{/logout}">
+        <input type="submit" value="LogOut" class="logout">
+    </form>
+    <a href = "home_page">SHOP</a>
+    <a href = "order">ORDERS</a>
+</div>
+<div class = "logo">
+    <img src="images/pushok-shop.png" id = "logo_pic">
+</div>
+<div class = "add-product">
+    <div class = "product-form">
+        <h1>ADD PRODUCT</h1>
+        <br><input th:type="text" placeholder="BREED"></br>
+        <br><input th:type="text" placeholder="COLOR"></br>
+        <br><input th:type="text" placeholder="PRICE"></br>
+        <br>
+        <button class="add-btn" type="button" name="button">
+            ADD
+        </button>
+        </br>
+    </div>
+</div>
 </body>
 </html>

@@ -9,30 +9,18 @@
     <script src="https://code.jquery.com/jquery-2.2.4.js" charset="utf-8"></script>
 </head>
 <body>
-<!--    <div class="bar">-->
-<!--        <th:block sec:authorize="!isAuthenticated()">-->
-<!--            <a href = "home_page">SHOP</a>-->
-<!--            <a href = "loginka">LOGIN</a>-->
-<!--            <a href = "registration">REGISTRATION</a>-->
-<!--        </th:block>-->
-<!--        <th:block sec:authorize="isAuthenticated">-->
-<!--            <form th:method="POST" th:action="@{/logout}">-->
-<!--                <input type="submit" value="LogOut" class="logout">-->
-<!--            </form>-->
-<!--            <a href = "home_page">SHOP</a>-->
-<!--        </th:block>-->
-<!--        <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">-->
-<!--            <a href = "order">ORDERS</a>-->
-<!--        </th:block>-->
-<!--        <th:block sec:authorize="hasRole('ADMIN')">-->
-<!--            <a href = "addProduct">ADD ITEM</a>-->
-<!--        </th:block>-->
-<!--    </div>-->
-<!--    <div class = "logo">-->
-<!--        <img src="images/pushok-shop.png" id = "logo_pic">-->
-<!--    </div>-->
+    <div class="bar">
+            <form th:method="POST" th:action="@{/logout}">
+                <input type="submit" value="LogOut" class="logout">
+            </form>
+            <a href = "home_page">SHOP</a>
+    </div>
+    <div class = "logo">
+        <img src="images/pushok-shop.png" id = "logo_pic">
+    </div>
+
     <div class="cart">
-        <div class = "item">
+        <div class = "item" th:each="">
             <div class="order-description">
                 <div class = "doggy">
                     PICTURE
