@@ -1,7 +1,11 @@
 package com.pushok.shop.service;
 
 
+import com.pushok.shop.entity.Cart;
+import com.pushok.shop.entity.Product;
 import com.pushok.shop.entity.UserEntity;
+import com.pushok.shop.repo.CartRepo;
+import com.pushok.shop.repo.ProductRepo;
 import com.pushok.shop.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

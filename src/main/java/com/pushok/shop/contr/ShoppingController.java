@@ -17,4 +17,11 @@ public class ShoppingController {
 
 
 
+    @GetMapping("/cart")
+    public String shoppingCart(Model model){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userService.findByName(auth.getName());
+        model.addAttribute("products", user.getProducts());
+        return "cart";
+    }
 }

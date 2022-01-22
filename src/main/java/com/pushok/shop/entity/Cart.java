@@ -34,6 +34,10 @@ public class Cart {
         this.userId = userId;
     }
 
+    public void inc(){
+        quantity++;
+    }
+
     public int getQuantity() {
         return quantity;
     }
