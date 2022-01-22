@@ -28,6 +28,22 @@ public class UserEntity {
 
     }
 
+    public Long getId() {
+        return Id;
+    }
+
+    public List<Cart> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Cart> products) {
+        this.products = products;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
     public void addProduct(Cart product){
         this.products.add(product);
     }

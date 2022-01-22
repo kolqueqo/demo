@@ -216,6 +216,7 @@ input:focus{
 .item{
     background-color: rgba(0,0,0,.5);
     padding: 1px;
+    margin-bottom: 10px;
 }
 
 .order{

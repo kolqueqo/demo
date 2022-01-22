@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashSet;
 
-//мразь
 @Controller
 @RequestMapping("/")
 public class UserController {

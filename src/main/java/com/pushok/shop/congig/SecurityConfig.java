@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .defaultSuccessUrl("/", true)
                         .loginProcessingUrl("/login")
                         .usernameParameter("username"))
-                .logout().permitAll().and().csrf().disable();
+                .logout().permitAll().logoutSuccessUrl("/").and().csrf().disable();
 
     }
 

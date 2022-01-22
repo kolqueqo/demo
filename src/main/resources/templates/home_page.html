@@ -21,7 +21,7 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             </form>
         </th:block>
         <th:block sec:authorize="hasRole('USER')">
-            <a href = "addcart">SHOPPING CART</a>
+            <a href = "cart">CART</a>
         </th:block>
         <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
             <a href = "order">ORDERS</a>
@@ -70,7 +70,9 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                     </div>
                     <th:block sec:authorize = "hasRole('USER')">
                         <div class="addToCart">
-                            <label><input type="submit" value="ADD" class = "button1"></label>
+                            <form th:method="POST" th:action="'/addcart/' + ${product.id}">
+                            <label><input type="submit" value="ADD" class = "button1" ></label>
+                            </form>
                         </div>
                     </th:block>
                 </li>

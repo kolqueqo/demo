@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Busket</title>
+<!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+    <div class="bar">
+            <form th:method="POST" th:action="@{/logout}">
+                <input type="submit" value="LogOut" class="logout">
+            </form>
+            <a href = "/">SHOP</a>
+    </div>
+    <div class = "logo">
+        <img src="images/pushok-shop.png" id = "logo_pic">
+    </div>
+
+    <div class="cart">
+        <div class = "item" th:each = "product: ${products}">
+            <div class="order-description">
+                <div class = "doggy">
+                    <img th:src="'images/' + ${product.getProduct().id} + '.jpg'">
+                </div>
+                <div th:text="'BREED: ' + ${product.getProduct().breed}" class="descriptionPart" id = "breed"></div>
+                <div th:text="'COLOR: ' + ${product.getProduct().color}" class="descriptionPart"></div>
+                <div th:text="'PRICE: ' + ${product.getProduct().price}" class="descriptionPart"></div>
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button" th:method="POST" th:action="'/inc/' + ${product.getProduct().id}">
+                    <img src="images/plus.png" alt="" />
+                </button>
+
+                <input type="text" name="name" th:text="${product.quantity}">
+
+                <button class="minus-btn" type="button" name="button" th:method = "POST" th:action="'/dec/' + ${product.getProduct().id}">
+                    <img src="images/minus.png" alt="" />
+                </button>
+            </div>
+
+            <div class="total">
+                <div th:text="${product.quantity} * ${product.getProduct().price}"></div>
+            </div>
+
+            <div class = "delete-btn">
+                <button type="button" name="button" th:method="POST" th:action="'/del/' + ${product.getProduct().id}">
+                    <img src="images/delete.png" alt="" />
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "order">
+        <input th:type="text" placeholder="ADRESS" class="order_input">
+        <button class="order_btn" type="button" name="button">
+            PLACE AN ORDER
+        </button>
+    </div>
+</body>
+</html>
