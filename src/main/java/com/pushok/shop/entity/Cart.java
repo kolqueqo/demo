@@ -38,6 +38,10 @@ public class Cart {
         quantity++;
     }
 
+    public void dec(){
+        quantity--;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -54,9 +58,9 @@ public class Cart {
         this.product = product;
     }
 
-    public Cart(Long userId, int quantity, Product product) {
-        this.userId = userId;
+    public Cart( int quantity, Product product, Long userId) {
         this.quantity = quantity;
         this.product = product;
+        this.userId = userId;
     }
 }

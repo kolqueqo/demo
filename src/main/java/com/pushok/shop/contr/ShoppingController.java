@@ -1,7 +1,14 @@
 package com.pushok.shop.contr;
 
 
+import com.pushok.shop.entity.UserEntity;
+import com.pushok.shop.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +17,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class ShoppingController {
 
-    @PostMapping("/addcart/{id}")
-    public void addCart(@PathVariable Long id){
 
+    @Autowired
+    private UserService userService;
+
+
+    @PostMapping("/addcart/{id}")
+    public String addCart(@PathVariable Long id){
+        userService.addProduct(id);
+        return "redirect:/";
     }
 
 

@@ -8,6 +8,8 @@ import com.pushok.shop.repo.CartRepo;
 import com.pushok.shop.repo.ProductRepo;
 import com.pushok.shop.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +18,12 @@ public class UserService {
 
     @Autowired
     private UserRepo userRepo;
+
+    @Autowired
+    private ProductRepo productRepo;
+
+    @Autowired
+    private CartRepo cartRepo;
 
     public UserEntity findByName(String username){
         return userRepo.findUserEntityByUsername(username);
@@ -27,4 +35,60 @@ public class UserService {
         userRepo.saveAndFlush(user);
     }
 
+    @Transactional
+    public void addProduct(Long id){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userRepo.findUserEntityByUsername(auth.getName());
+        Product product = productRepo.findById(id).get();
+        Cart cart = cartRepo.findByProductAndUserId(product, user.getId());
+
+        if(cart != null){
+            cart.inc();
+            cartRepo.saveAndFlush(cart);
+            return;
+        }
+        else{
+            cart = new Cart(1,product, user.getId());
+        }
+
+        cartRepo.saveAndFlush(cart);
+        user.addProduct(cart);
+        userRepo.saveAndFlush(user);
+
+    }
+
+    @Transactional
+    public void inc(Long id){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userRepo.findUserEntityByUsername(auth.getName());
+        Product product = productRepo.findById(id).get();
+        Cart cart = cartRepo.findByProductAndUserId(product, user.getId());
+        cart.inc();
+
+        cartRepo.saveAndFlush(cart);
+        userRepo.saveAndFlush(user);
+    }
+
+    @Transactional
+    public void dec(Long id){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userRepo.findUserEntityByUsername(auth.getName());
+        Product product = productRepo.findById(id).get();
+        Cart cart = cartRepo.findByProductAndUserId(product, user.getId());
+        cart.dec();
+
+        cartRepo.saveAndFlush(cart);
+        userRepo.saveAndFlush(user);
+    }
+
+    @Transactional
+    public void del(Long id){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userRepo.findUserEntityByUsername(auth.getName());
+        Product product = productRepo.findById(id).get();
+        Cart cart = cartRepo.findByProductAndUserId(product, user.getId());
+
+        cartRepo.delete(cart);
+        userRepo.saveAndFlush(user);
+    }
 }
