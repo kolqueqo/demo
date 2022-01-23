@@ -16,14 +16,14 @@ public class Order {
 
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "order_product")
-    private List<CartClown> products;
+    @JoinTable(name = "order_cart_clone")
+    private List<CartClown> cart_clone;
 
     private String adress;
 
 
     public void addProd(CartClown c){
-        products.add(c);
+        cart_clone.add(c);
     }
 
 
@@ -47,15 +47,15 @@ public class Order {
     }
 
     public List<CartClown> getProducts() {
-        return products;
+        return cart_clone;
     }
 
-    public void setProducts(List<CartClown> products) {
-        this.products = products;
+    public void setProducts(List<CartClown> cart_clone) {
+        this.cart_clone = cart_clone;
     }
 
-    public Order(List<CartClown> products, String adress) {
-        this.products = products;
+    public Order(List<CartClown> cart_clone, String adress) {
+        this.cart_clone = cart_clone;
         this.adress = adress;
     }
 }

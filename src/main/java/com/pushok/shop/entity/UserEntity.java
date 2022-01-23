@@ -18,9 +18,9 @@ public class UserEntity {
     private String password;
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_product",
+    @JoinTable(name = "user_cart",
             joinColumns = @JoinColumn(name = "userID", referencedColumnName = "ID"))
-    private List<Cart> products;
+    private List<Cart> cart;
 
     private String role;
 
@@ -33,31 +33,31 @@ public class UserEntity {
     }
 
     public List<Cart> getProducts() {
-        return products;
+        return cart;
     }
 
     public void del(){
-        products.clear();
+        cart.clear();
     }
 
-    public void setProducts(List<Cart> products) {
-        this.products = products;
+    public void setProducts(List<Cart> cart) {
+        this.cart = cart;
     }
 
     public void setId(Long id) {
         Id = id;
     }
 
-    public void addProduct(Cart product){
-        this.products.add(product);
+    public void addProduct(Cart cart){
+        this.cart.add(cart);
     }
 
-    public void deleteProduct(Cart product){
-        this.products.remove(product);
+    public void deleteProduct(Cart cart){
+        this.cart.remove(cart);
     }
 
     public void deleteAllProduct(){
-        this.products.clear();
+        this.cart.clear();
     }
 
     public String getEmail() {
