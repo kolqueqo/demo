@@ -2,7 +2,7 @@ package com.pushok.shop.entity;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "cart_clone")
 public class CartClown {
 
     @Id

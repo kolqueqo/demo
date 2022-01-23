@@ -16,7 +16,7 @@ public class Order {
 
 
     @OneToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "pepega")
+    @JoinTable(name = "order_product")
     private List<CartClown> products;
 
     private String adress;
