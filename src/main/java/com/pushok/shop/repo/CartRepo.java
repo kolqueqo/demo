@@ -8,4 +8,7 @@ public interface CartRepo extends JpaRepository<Cart, Long> {
 
 
     Cart findByProductAndUserId(Product product, Long userId);
+
+    void deleteAllByUserId(Long id);
+
 }

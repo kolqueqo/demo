@@ -90,4 +90,13 @@ public class UserService {
         cartRepo.delete(cart);
         userRepo.saveAndFlush(user);
     }
+
+    @Transactional
+    public void delALL(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserEntity user = userRepo.findUserEntityByUsername(auth.getName());
+        user.del();
+        userRepo.saveAndFlush(user);
+        cartRepo.deleteAllByUserId(user.getId());
+    }
 }

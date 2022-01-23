@@ -24,6 +24,10 @@ public class ShoppingController {
     @Autowired
     private UserService userService;
 
+
+    @Autowired
+    private OrderRepo orderRepo;
+
     @Autowired
     private ProdService prodService;
 

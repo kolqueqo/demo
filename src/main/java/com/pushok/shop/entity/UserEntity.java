@@ -36,6 +36,10 @@ public class UserEntity {
         return products;
     }
 
+    public void del(){
+        products.clear();
+    }
+
     public void setProducts(List<Cart> products) {
         this.products = products;
     }
