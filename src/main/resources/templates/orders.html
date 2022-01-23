@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>orders</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
 <!--bar-->
@@ -14,27 +14,39 @@
         <input type="submit" value="LogOut" class="logout">
     </form>
 
-    <a href = "home_page">SHOP</a>
+    <a href = "/">SHOP</a>
     <th:block sec:authorize="hasRole('ADMIN')">
-        <a href = "addProduct">ADD</a>
+        <a href = "add">ADD</a>
     </th:block>
 </div>
 <div class = "logo">
     <img src="images/pushok-shop.png" id = "logo_pic">
 </div>
 
-<div class = order-list>
+<div class = "order-list" th:each = "order : ${orders}">
     <div class = "the-order">
-        <ul>
-            <li>
-                ID
-                QUANTITY
-            </li>
-        </ul>
-        ADRESS
-        <button type="button" name="button" class = "delete-order-btn">
-            <img src="../static/images/delete.png" alt="" />
+        <table>
+            <tr>
+                <th>
+                    PRODUCT  ID
+                </th>
+                <th>
+                    QUANTITY
+                </th>
+            </tr>
+            <tr th:each = "product :${order.getProducts()}">
+                <th th:text="${product.getProduct().id}">
+                </th>
+                <th th:text="${product.quantity}">
+                </th>
+            </tr>
+        </table>
+        <div th:text="'ADDRESS: ' + ${order.adress}"></div>
+        <form th:method="POST" th:action="'/order/delete/' + ${order.id}">
+        <button type="submit" name="button" class = "delete-order-btn">
+            <img src="images/delete.png" alt="" />
         </button>
+        </form>
     </div>
 </div>
 

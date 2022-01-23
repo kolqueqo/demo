@@ -326,13 +326,27 @@ input:focus{
 }
 
 .the-order{
-    margin: 10px 250px;
+    margin: 10px 400px;
     background-color: rgba(0, 0, 0, .5);
     font-family: SansSerif;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     text-align: center;
     border-radius: 5px;
+}
+
+.quantity_inline{
+    display: inline-block;
+    vertical-align: center;
+}
+
+.the-order table{
+    width: 300px;
+    margin: auto;
+}
+
+.delete-order-btn{
+    margin: 10px;
 }
 
 

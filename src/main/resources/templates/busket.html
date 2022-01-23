@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
-    <title>Busket</title>
+    <title>CART</title>
 <!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
@@ -30,35 +30,43 @@
             </div>
 
             <div class="quantity">
-                <button class="plus-btn" type="button" name="button" th:method="POST" th:action="'/inc/' + ${product.getProduct().id}">
-                    <img src="images/plus.png" alt="" />
-                </button>
+                <form th:method = "POST" th:action="'/cart/increment/' + ${product.getProduct().id}" class="quantity_inline">
+                    <button class="plus-btn" type="submit" name="button">
+                        <img src="images/plus.png" alt="" />
+                    </button>
+                </form>
 
-                <input type="text" name="name" th:text="${product.quantity}">
+                <input type="text" name="name" th:value = "${product.quantity}" class = "quantity_inline">
 
-                <button class="minus-btn" type="button" name="button" th:method = "POST" th:action="'/dec/' + ${product.getProduct().id}">
-                    <img src="images/minus.png" alt="" />
-                </button>
+                <form th:method = "POST" th:action="'/cart/decrement/' + ${product.getProduct().id}" class="quantity_inline">
+                    <button class="minus-btn" type="submit" name="button">
+                        <img src="images/minus.png" alt="" />
+                    </button>
+                </form>
             </div>
 
             <div class="total">
-                <div th:text="${product.quantity} * ${product.getProduct().price}"></div>
+                <div th:text="'TOTAL: ' + ${product.quantity} * ${product.getProduct().price}"></div>
             </div>
 
             <div class = "delete-btn">
-                <button type="button" name="button" th:method="POST" th:action="'/del/' + ${product.getProduct().id}">
+                <form th:method="POST" th:action="'/cart/delete/' + ${product.getProduct().id}">
+                <button type="submit" name="button">
                     <img src="images/delete.png" alt="" />
                 </button>
+                </form>
             </div>
         </div>
 
     </div>
 
     <div class = "order">
-        <input th:type="text" placeholder="ADRESS" class="order_input">
-        <button class="order_btn" type="button" name="button">
+        <form th:method = "POST" th:action="'/cart/placeOrder'">
+        <input type="text" placeholder="ADRESS" class="order_input" name="address">
+        <button class="order_btn" type="submit" name="button">
             PLACE AN ORDER
         </button>
+        </form>
     </div>
 </body>
 </html>

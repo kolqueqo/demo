@@ -66,7 +66,6 @@ public class UserService {
         cart.inc();
 
         cartRepo.saveAndFlush(cart);
-        userRepo.saveAndFlush(user);
     }
 
     @Transactional
@@ -78,7 +77,6 @@ public class UserService {
         cart.dec();
 
         cartRepo.saveAndFlush(cart);
-        userRepo.saveAndFlush(user);
     }
 
     @Transactional
@@ -88,6 +86,7 @@ public class UserService {
         Product product = productRepo.findById(id).get();
         Cart cart = cartRepo.findByProductAndUserId(product, user.getId());
 
+        user.deleteProduct(cart);
         cartRepo.delete(cart);
         userRepo.saveAndFlush(user);
     }

@@ -21,13 +21,13 @@ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             </form>
         </th:block>
         <th:block sec:authorize="hasRole('USER')">
-            <a href = "cart">CART</a>
+            <a href = "shopping_cart">CART</a>
         </th:block>
         <th:block sec:authorize="hasAnyRole('MANAGER', 'ADMIN')">
             <a href = "order">ORDERS</a>
         </th:block>
         <th:block sec:authorize="hasRole('ADMIN')">
-            <a href = "addProduct">ADD</a>
+            <a href = "add">ADD</a>
         </th:block>
     </div>
     <div class = "logo">

@@ -1,7 +1,10 @@
 package com.pushok.shop.contr;
 
 
+import com.pushok.shop.entity.Order;
 import com.pushok.shop.entity.UserEntity;
+import com.pushok.shop.repo.OrderRepo;
+import com.pushok.shop.service.ProdService;
 import com.pushok.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,6 +24,8 @@ public class ShoppingController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ProdService prodService;
 
     @PostMapping("/addcart/{id}")
     public String addCart(@PathVariable Long id){
@@ -30,11 +35,22 @@ public class ShoppingController {
 
 
 
-    @GetMapping("/cart")
+    @GetMapping("/shopping_cart")
     public String shoppingCart(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserEntity user = userService.findByName(auth.getName());
         model.addAttribute("products", user.getProducts());
-        return "cart";
+        return "busket";
+    }
+
+    @GetMapping("/add")
+    public String ADDProduct(){
+        return "addProduct";
+    }
+
+    @GetMapping("/order")
+    public String oRDERS(Model model){
+        model.addAttribute("orders", orderRepo.findAll());
+        return "orders";
     }
 }

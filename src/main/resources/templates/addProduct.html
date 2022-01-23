@@ -4,32 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <title>home</title>
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
-    <!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">-->
+<!--    <link rel="stylesheet" type="text/css" href="../static/style.css">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
 <div class="bar">
     <form th:method="POST" th:action="@{/logout}">
         <input type="submit" value="LogOut" class="logout">
     </form>
-    <a href = "home_page">SHOP</a>
+    <a href = "/">SHOP</a>
     <a href = "order">ORDERS</a>
 </div>
 <div class = "logo">
     <img src="images/pushok-shop.png" id = "logo_pic">
 </div>
 <div class = "add-product">
+    <form th:method="POST" th:action="'add/product_add'">
     <div class = "product-form">
         <h1>ADD PRODUCT</h1>
-        <br><input th:type="text" placeholder="BREED"></br>
-        <br><input th:type="text" placeholder="COLOR"></br>
-        <br><input th:type="text" placeholder="PRICE"></br>
+        <br><input type="text" placeholder="BREED" name="breed"></br>
+        <br><input type="text" placeholder="COLOR" name="color"></br>
+        <br><input type="number" placeholder="PRICE" name="price"></br>
         <br>
-        <button class="add-btn" type="button" name="button">
+        <button class="add-btn" type="submit" name="button">
             ADD
         </button>
         </br>
     </div>
+    </form>
 </div>
 </body>
 </html>

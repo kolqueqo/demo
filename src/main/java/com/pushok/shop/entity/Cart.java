@@ -39,7 +39,9 @@ public class Cart {
     }
 
     public void dec(){
-        quantity--;
+        if(quantity > 1){
+            quantity--;
+        }
     }
 
     public int getQuantity() {

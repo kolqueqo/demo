@@ -54,7 +54,7 @@ public class Product {
         Id = id;
     }
 
-    public Product(String color, String breed, Double price) {
+    public Product(String breed, String color, Double price) {
         this.color = color;
         this.breed = breed;
         this.price = price;

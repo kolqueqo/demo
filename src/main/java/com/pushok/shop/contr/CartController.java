@@ -1,6 +1,7 @@
 package com.pushok.shop.contr;
 
 
+import com.pushok.shop.service.OrderService;
 import com.pushok.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,21 +18,27 @@ public class CartController {
     private UserService userService;
 
 
-    @PostMapping("/inc/{id}")
+    @PostMapping("/increment/{id}")
     public String increment(@PathVariable Long id){
         userService.inc(id);
-        return "redirect:/cart";
+        return "redirect:/shopping_cart";
     }
 
-    @PostMapping("/dec/{id}")
+    @PostMapping("/decrement/{id}")
     public String decrement(@PathVariable Long id){
         userService.dec(id);
-        return "redirect:/cart";
+        return "redirect:/shopping_cart";
     }
 
-    @PostMapping("/del/{id}")
+    @PostMapping("/delete/{id}")
     public String delete(@PathVariable Long id){
         userService.del(id);
-        return "redirect:/cart";
+        return "redirect:/shopping_cart";
+    }
+
+    @PostMapping("/placeOrder")
+    public String PlaceOrder(@RequestParam String address){
+        orderService.createOrder(address);
+        return "redirect:/";
     }
 }
